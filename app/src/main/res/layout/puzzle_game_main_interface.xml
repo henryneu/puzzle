@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ralativelayout_puzzle_game_main_interface"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_puzzle_main_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/puzzle_game_main_interface_step"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:id="@+id/textview_puzzle_main_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingRight="50dip"
+            android:text="@string/puzzle_game_main_interface_step_number"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/puzzle_game_main_interface_time"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/text_title" />
+
+        <TextView
+            android:id="@+id/textview_puzzle_main_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/puzzle_game_main_interface_time_number"
+            android:textColor="@color/title_text"
+            android:textSize="@dimen/text_title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_puzzle_main_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/padding">
+
+        <Button
+            android:id="@+id/button_puzzle_main_img"
+            style="@style/button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding"
+            android:background="@drawable/circle_button"
+            android:text="@string/puzzle_main_img" />
+
+        <Button
+            android:id="@+id/button_puzzle_main_restart"
+            style="@style/button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding"
+            android:background="@drawable/circle_button"
+            android:text="@string/puzzle_main_reset" />
+
+        <Button
+            android:id="@+id/button_puzzle_main_back"
+            style="@style/button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding"
+            android:background="@drawable/circle_button"
+            android:text="@string/puzzle_main_back" />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridview_puzzle_game_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linearlayout_puzzle_main_buttons"
+        android:layout_below="@id/linearlayout_puzzle_main_spinner"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/padding">
+    </GridView>
+
+</RelativeLayout>

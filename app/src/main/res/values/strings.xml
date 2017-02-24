@@ -3,4 +3,12 @@
 
     <string name="puzzle_main_type">选择难度：</string>
     <string name="puzzle_main_type_selected">2 X 2</string>
+
+    <string name="puzzle_game_main_interface_step">步数：</string>
+    <string name="puzzle_game_main_interface_step_number">1</string>
+    <string name="puzzle_game_main_interface_time">时间：</string>
+    <string name="puzzle_game_main_interface_time_number">1</string>
+    <string name="puzzle_main_img">原 图</string>
+    <string name="puzzle_main_reset">重 置</string>
+    <string name="puzzle_main_back">后 退</string>
 </resources>
