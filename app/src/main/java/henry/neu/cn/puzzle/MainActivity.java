@@ -15,10 +15,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -51,9 +53,16 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int mType = 2;
 
     private String[] mCustomItems = new String[]{"本地相册", "相机拍照"};
-
+    // PopupWindow
     private PopupWindow mPopupWindow;
     private View mPopupView;
+    // TextView 所选拼图等级显示
+    private TextView textViewTypeSelected;
+
+    private LayoutInflater mLayoutInflater;
+    private TextView mTextViewType2;
+    private TextView mTextViewType3;
+    private TextView mTextViewType4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +84,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     intent.putExtra("mType", mType);
                     startActivity(intent);
                 }
+            }
+        });
+
+        // 显示难度Type
+        textViewTypeSelected.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 弹出popup window
+                popupShow(v);
             }
         });
     }
@@ -112,11 +130,44 @@ public class MainActivity extends Activity implements View.OnClickListener {
             bitmaps[i] = BitmapFactory.decodeResource(getResources(), mResPicId[i]);
             mPicList.add(bitmaps[i]);
         }
+        // 显示所选拼图难度类型
+        textViewTypeSelected = (TextView) findViewById(R.id.textview_puzzle_main_type_selected);
+        mLayoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        // type select view
+        mPopupView = mLayoutInflater.inflate(R.layout.puzzle_main_type_select, null);
+        mTextViewType2 = (TextView) mPopupView.findViewById(R.id.textview_main_type_2);
+        mTextViewType3 = (TextView) mPopupView.findViewById(R.id.textview_main_type_3);
+        mTextViewType4 = (TextView) mPopupView.findViewById(R.id.textview_main_type_4);
+        // 添加监听事件
+        mTextViewType2.setOnClickListener(this);
+        mTextViewType3.setOnClickListener(this);
+        mTextViewType4.setOnClickListener(this);
     }
+
+    /**
+     * popup window items点击事件
+     *
+     * @param v
+     */
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.textview_main_type_2:
+                mType = 2;
+                textViewTypeSelected.setText("2 X 2");
+                break;
+            case R.id.textview_main_type_3:
+                mType = 3;
+                textViewTypeSelected.setText("3 X 3");
+                break;
+            case R.id.textview_main_type_4:
+                textViewTypeSelected.setText("4 X 4");
+                break;
+            default:
+                break;
+        }
+        mPopupWindow.dismiss();
     }
 
     /**

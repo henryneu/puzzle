@@ -3,6 +3,9 @@
 
     <string name="puzzle_main_type">选择难度：</string>
     <string name="puzzle_main_type_selected">2 X 2</string>
+    <string name="puzzle_main_type_2">2x2</string>
+    <string name="puzzle_main_type_3">3x3</string>
+    <string name="puzzle_main_type_4">4x4</string>
 
     <string name="puzzle_game_main_interface_step">步数：</string>
     <string name="puzzle_game_main_interface_step_number">1</string>
