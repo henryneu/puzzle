@@ -8,4 +8,5 @@
     <color name="main_background">#70DB93</color>
     <color name="main_text">#215E21</color>
     <color name="textview_click">#22334444</color>
+    <color name="setting_text_dark">#111111</color>
 </resources>
