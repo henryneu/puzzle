@@ -93,6 +93,7 @@
         android:layout_above="@id/linearlayout_puzzle_main_buttons"
         android:layout_below="@id/linearlayout_puzzle_main_spinner"
         android:layout_centerInParent="true"
-        android:layout_margin="@dimen/padding" />
+        android:layout_margin="@dimen/padding">
+    </GridView>
 
 </RelativeLayout>

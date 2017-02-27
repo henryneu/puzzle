@@ -314,7 +314,7 @@ public class PuzzleMain extends Activity implements View.OnClickListener {
         // 水平居中
         gridParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         gridParams.addRule(RelativeLayout.BELOW, R.id.linearlayout_puzzle_main_spinner);
-        gridParams.addRule(RelativeLayout.ABOVE, R.id.linearlayout_puzzle_main_buttons);
+        // gridParams.addRule(RelativeLayout.ABOVE, R.id.linearlayout_puzzle_main_buttons);
         // Grid 显示
         mGridViewGameMain.setLayoutParams(gridParams);
         mGridViewGameMain.setHorizontalSpacing(0);

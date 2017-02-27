@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ import java.util.List;
 
 import henry.neu.cn.puzzle.activity.PuzzleMain;
 import henry.neu.cn.puzzle.adapter.GridPicListAdapter;
+import henry.neu.cn.puzzle.utils.MiPictureHelper;
 import henry.neu.cn.puzzle.utils.ScreenUtil;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -37,7 +39,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
      */
     // 返回码：本地图库
     private static final int RESULT_IMAGE = 100;
-    // 返回码：本地图库
+    // 返回码：相机
     private static final int RESULT_CAMERA = 200;
     // image type
     private static final String IMAGE_TYPE = "image/*";
@@ -53,6 +55,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int mType = 2;
 
     private String[] mCustomItems = new String[]{"本地相册", "相机拍照"};
+    // 选取图片的路径
+    private String imagePath;
     // PopupWindow
     private PopupWindow mPopupWindow;
     private View mPopupView;
@@ -207,13 +211,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (resultCode == RESULT_OK) {
             if (requestCode == RESULT_IMAGE && data != null) {
                 // 相册
-                Cursor cursor = this.getContentResolver().query(data.getData(), null, null, null, null);
-                cursor.moveToFirst();
-                String imagePath = cursor.getString(cursor.getColumnIndex("_data"));
+                try {
+                    Uri uri = data.getData();
+                    imagePath = MiPictureHelper.getPath(MainActivity.this, uri);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                // Cursor cursor = this.getContentResolver().query(data.getData(), null, null, null, null);
+                // cursor.moveToFirst();
+                // String imagePath = cursor.getString(cursor.getColumnIndex("_data"));
+                // Log.d("MainActivity", "onActivityResult: " + imagePath);
                 Intent intent = new Intent(MainActivity.this, PuzzleMain.class);
                 intent.putExtra("mPicPath", imagePath);
                 intent.putExtra("mType", mType);
-                cursor.close();
+                // cursor.close();
                 startActivity(intent);
             } else if (requestCode == RESULT_CAMERA) {
                 Intent intent = new Intent(MainActivity.this, PuzzleMain.class);
