@@ -118,6 +118,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mPopupWindow.showAtLocation(view, Gravity.NO_GRAVITY, location[0] - 40 * density, location[1] + 30 * density);
     }
 
+    /**
+     * 初始化View相关
+     */
+
     private void initViews() {
         mPicList = new ArrayList<Bitmap>();
         mGridViewPicList = (GridView) findViewById(R.id.gridview_puzzle_main_pic_list);

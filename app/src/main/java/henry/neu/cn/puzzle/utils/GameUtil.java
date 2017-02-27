@@ -27,7 +27,7 @@ public class GameUtil {
         int index = 0;
         // 随机打乱顺序
         for (int i = 0; i < mItemBeans.size(); i++) {
-            index = (int) Math.random() * PuzzleMain.TYPE * PuzzleMain.TYPE;
+            index = (int) (Math.random() * PuzzleMain.TYPE * PuzzleMain.TYPE);
             swapItems(mItemBeans.get(index), GameUtil.mBlankItemBeans);
         }
         List<Integer> data = new ArrayList<Integer>();
